@@ -1,36 +1,35 @@
 local UV = require "luv"
-local Class = require "luver.class"
+local Hub = require "luver.hub"
 
-local Luver = Class "Luver"
+local Luver = {}
 
-function Luver:initialize()
-    self.prepare_callbacks = {}
-    self.prepare = UV.new_prepare()
-    self.prepare:start(function()
-        xpcall(self.prepare_run, debug.traceback, self)
-    end)
-end
-
-function Luver:prepare_run()
-    for _, f in ipairs(self.prepare_callbacks) do
-        f()
-    end
-end
-
-function Luver:prepare_push(f)
-    table.insert(self.prepare_callbacks, f)
-end
-
-function Luver:start(main)
-    self:prepare_push(main)
+function Luver.start(f)
+    Hub:fork_callback(f)
     UV.run()
 end
 
-function Luver:run()
-end
-
-function Luver:stop()
+function Luver.stop()
     UV.stop()
 end
 
-return Luver:new()
+function Luver.fork(f, ...)
+    Hub:fork_callback(f, ...)
+end
+
+function Luver.sleep(ts)
+    Hub:sleep(ts)
+end
+
+function Luver.now()
+    return UV.now()
+end
+
+function Luver.hrtime()
+    return UV.hrtime() / (10^9)
+end
+
+function Luver.thread(f, ...)
+    return UV.new_thread(f, ...)
+end
+
+return Luver
