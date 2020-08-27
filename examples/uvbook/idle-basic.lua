@@ -1,4 +1,4 @@
-local uv = require('luv')
+local uv = require "luv"
 
 local counter = 0
 local idle = uv.new_idle()
@@ -10,4 +10,5 @@ idle:start(function()
 end)
 
 print("Idling...")
-uv.run('default')
+
+uv.run("default")
