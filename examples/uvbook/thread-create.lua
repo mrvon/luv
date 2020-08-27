@@ -4,6 +4,8 @@ local init_step = 10
 
 local hare_id = uv.new_thread(function(step)
     local uv2 = require "luv"
+    -- Uncaught Error in thread: thread:1: unexpected symbol near '<\160>'
+    print("debug -------------")
     while step > 0 do
         step = step - 1
         uv2.sleep(math.random(1000))
@@ -14,6 +16,7 @@ end, init_step, true, "abcd", "false")
 
 local tortoise_id = uv.new_thread(function(step)
     local uv2 = require "luv"
+    print("debug -------------")
     while step > 0 do
         step = step - 1
         uv2.sleep(math.random(100))

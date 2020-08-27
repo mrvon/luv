@@ -1,0 +1,182 @@
+valgrind lua examples/uvbook/thread-create.lua
+
+==36047== Memcheck, a memory error detector
+==36047== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==36047== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==36047== Command: lua examples/uvbook/thread-create.lua
+==36047==
+==36047== Invalid read of size 8
+==36047==    at 0x4C326C8: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x5F9EC4C: luv_new_thread (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==    by 0x414164: luaV_execute (in /usr/local/bin/lua)
+==36047==    by 0x408E0E: luaD_call (in /usr/local/bin/lua)
+==36047==    by 0x408E60: luaD_callnoyield (in /usr/local/bin/lua)
+==36047==    by 0x40827E: luaD_rawrunprotected (in /usr/local/bin/lua)
+==36047==    by 0x40917C: luaD_pcall (in /usr/local/bin/lua)
+==36047==    by 0x4065AE: lua_pcallk (in /usr/local/bin/lua)
+==36047==    by 0x4040A6: docall (in /usr/local/bin/lua)
+==36047==    by 0x404C03: pmain (in /usr/local/bin/lua)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==  Address 0x5baefb8 is 24 bytes inside a block of size 334 free'd
+==36047==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x416458: l_alloc (in /usr/local/bin/lua)
+==36047==    by 0x40BD51: luaM_realloc_ (in /usr/local/bin/lua)
+==36047==    by 0x40B161: sweeplist (in /usr/local/bin/lua)
+==36047==    by 0x40B2B9: sweepstep (in /usr/local/bin/lua)
+==36047==    by 0x40BB65: luaC_step (in /usr/local/bin/lua)
+==36047==    by 0x406A76: lua_newuserdata (in /usr/local/bin/lua)
+==36047==    by 0x5F9EB8D: luv_new_thread (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==    by 0x414164: luaV_execute (in /usr/local/bin/lua)
+==36047==    by 0x408E0E: luaD_call (in /usr/local/bin/lua)
+==36047==    by 0x408E60: luaD_callnoyield (in /usr/local/bin/lua)
+==36047==  Block was alloc'd at
+==36047==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x4C2FDEF: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x40BD51: luaM_realloc_ (in /usr/local/bin/lua)
+==36047==    by 0x40B87D: luaC_newobj (in /usr/local/bin/lua)
+==36047==    by 0x410C6D: luaS_createlngstrobj (in /usr/local/bin/lua)
+==36047==    by 0x410D06: luaS_newlstr (in /usr/local/bin/lua)
+==36047==    by 0x40593C: lua_pushlstring (in /usr/local/bin/lua)
+==36047==    by 0x41705B: luaL_pushresult (in /usr/local/bin/lua)
+==36047==    by 0x5F9E828: luv_thread_dumped (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x5F9EB78: luv_new_thread (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==    by 0x414164: luaV_execute (in /usr/local/bin/lua)
+==36047==
+==36047== Invalid read of size 8
+==36047==    at 0x4C326D6: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x5F9EC4C: luv_new_thread (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==    by 0x414164: luaV_execute (in /usr/local/bin/lua)
+==36047==    by 0x408E0E: luaD_call (in /usr/local/bin/lua)
+==36047==    by 0x408E60: luaD_callnoyield (in /usr/local/bin/lua)
+==36047==    by 0x40827E: luaD_rawrunprotected (in /usr/local/bin/lua)
+==36047==    by 0x40917C: luaD_pcall (in /usr/local/bin/lua)
+==36047==    by 0x4065AE: lua_pcallk (in /usr/local/bin/lua)
+==36047==    by 0x4040A6: docall (in /usr/local/bin/lua)
+==36047==    by 0x404C03: pmain (in /usr/local/bin/lua)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==  Address 0x5baefc8 is 40 bytes inside a block of size 334 free'd
+==36047==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x416458: l_alloc (in /usr/local/bin/lua)
+==36047==    by 0x40BD51: luaM_realloc_ (in /usr/local/bin/lua)
+==36047==    by 0x40B161: sweeplist (in /usr/local/bin/lua)
+==36047==    by 0x40B2B9: sweepstep (in /usr/local/bin/lua)
+==36047==    by 0x40BB65: luaC_step (in /usr/local/bin/lua)
+==36047==    by 0x406A76: lua_newuserdata (in /usr/local/bin/lua)
+==36047==    by 0x5F9EB8D: luv_new_thread (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==    by 0x414164: luaV_execute (in /usr/local/bin/lua)
+==36047==    by 0x408E0E: luaD_call (in /usr/local/bin/lua)
+==36047==    by 0x408E60: luaD_callnoyield (in /usr/local/bin/lua)
+==36047==  Block was alloc'd at
+==36047==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x4C2FDEF: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x40BD51: luaM_realloc_ (in /usr/local/bin/lua)
+==36047==    by 0x40B87D: luaC_newobj (in /usr/local/bin/lua)
+==36047==    by 0x410C6D: luaS_createlngstrobj (in /usr/local/bin/lua)
+==36047==    by 0x410D06: luaS_newlstr (in /usr/local/bin/lua)
+==36047==    by 0x40593C: lua_pushlstring (in /usr/local/bin/lua)
+==36047==    by 0x41705B: luaL_pushresult (in /usr/local/bin/lua)
+==36047==    by 0x5F9E828: luv_thread_dumped (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x5F9EB78: luv_new_thread (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==    by 0x414164: luaV_execute (in /usr/local/bin/lua)
+==36047==
+==36047== Invalid read of size 2
+==36047==    at 0x4C32720: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x5F9EC4C: luv_new_thread (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==    by 0x414164: luaV_execute (in /usr/local/bin/lua)
+==36047==    by 0x408E0E: luaD_call (in /usr/local/bin/lua)
+==36047==    by 0x408E60: luaD_callnoyield (in /usr/local/bin/lua)
+==36047==    by 0x40827E: luaD_rawrunprotected (in /usr/local/bin/lua)
+==36047==    by 0x40917C: luaD_pcall (in /usr/local/bin/lua)
+==36047==    by 0x4065AE: lua_pcallk (in /usr/local/bin/lua)
+==36047==    by 0x4040A6: docall (in /usr/local/bin/lua)
+==36047==    by 0x404C03: pmain (in /usr/local/bin/lua)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==  Address 0x5baf0e8 is 328 bytes inside a block of size 334 free'd
+==36047==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x416458: l_alloc (in /usr/local/bin/lua)
+==36047==    by 0x40BD51: luaM_realloc_ (in /usr/local/bin/lua)
+==36047==    by 0x40B161: sweeplist (in /usr/local/bin/lua)
+==36047==    by 0x40B2B9: sweepstep (in /usr/local/bin/lua)
+==36047==    by 0x40BB65: luaC_step (in /usr/local/bin/lua)
+==36047==    by 0x406A76: lua_newuserdata (in /usr/local/bin/lua)
+==36047==    by 0x5F9EB8D: luv_new_thread (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==    by 0x414164: luaV_execute (in /usr/local/bin/lua)
+==36047==    by 0x408E0E: luaD_call (in /usr/local/bin/lua)
+==36047==    by 0x408E60: luaD_callnoyield (in /usr/local/bin/lua)
+==36047==  Block was alloc'd at
+==36047==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x4C2FDEF: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x40BD51: luaM_realloc_ (in /usr/local/bin/lua)
+==36047==    by 0x40B87D: luaC_newobj (in /usr/local/bin/lua)
+==36047==    by 0x410C6D: luaS_createlngstrobj (in /usr/local/bin/lua)
+==36047==    by 0x410D06: luaS_newlstr (in /usr/local/bin/lua)
+==36047==    by 0x40593C: lua_pushlstring (in /usr/local/bin/lua)
+==36047==    by 0x41705B: luaL_pushresult (in /usr/local/bin/lua)
+==36047==    by 0x5F9E828: luv_thread_dumped (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x5F9EB78: luv_new_thread (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==    by 0x414164: luaV_execute (in /usr/local/bin/lua)
+==36047==
+==36047== Invalid read of size 1
+==36047==    at 0x4C32758: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x5F9EC4C: luv_new_thread (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==    by 0x414164: luaV_execute (in /usr/local/bin/lua)
+==36047==    by 0x408E0E: luaD_call (in /usr/local/bin/lua)
+==36047==    by 0x408E60: luaD_callnoyield (in /usr/local/bin/lua)
+==36047==    by 0x40827E: luaD_rawrunprotected (in /usr/local/bin/lua)
+==36047==    by 0x40917C: luaD_pcall (in /usr/local/bin/lua)
+==36047==    by 0x4065AE: lua_pcallk (in /usr/local/bin/lua)
+==36047==    by 0x4040A6: docall (in /usr/local/bin/lua)
+==36047==    by 0x404C03: pmain (in /usr/local/bin/lua)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==  Address 0x5baf0ec is 332 bytes inside a block of size 334 free'd
+==36047==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x416458: l_alloc (in /usr/local/bin/lua)
+==36047==    by 0x40BD51: luaM_realloc_ (in /usr/local/bin/lua)
+==36047==    by 0x40B161: sweeplist (in /usr/local/bin/lua)
+==36047==    by 0x40B2B9: sweepstep (in /usr/local/bin/lua)
+==36047==    by 0x40BB65: luaC_step (in /usr/local/bin/lua)
+==36047==    by 0x406A76: lua_newuserdata (in /usr/local/bin/lua)
+==36047==    by 0x5F9EB8D: luv_new_thread (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==    by 0x414164: luaV_execute (in /usr/local/bin/lua)
+==36047==    by 0x408E0E: luaD_call (in /usr/local/bin/lua)
+==36047==    by 0x408E60: luaD_callnoyield (in /usr/local/bin/lua)
+==36047==  Block was alloc'd at
+==36047==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x4C2FDEF: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==36047==    by 0x40BD51: luaM_realloc_ (in /usr/local/bin/lua)
+==36047==    by 0x40B87D: luaC_newobj (in /usr/local/bin/lua)
+==36047==    by 0x410C6D: luaS_createlngstrobj (in /usr/local/bin/lua)
+==36047==    by 0x410D06: luaS_newlstr (in /usr/local/bin/lua)
+==36047==    by 0x40593C: lua_pushlstring (in /usr/local/bin/lua)
+==36047==    by 0x41705B: luaL_pushresult (in /usr/local/bin/lua)
+==36047==    by 0x5F9E828: luv_thread_dumped (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x5F9EB78: luv_new_thread (in /home/dennis/luv/build/luv.so)
+==36047==    by 0x408B43: luaD_precall (in /usr/local/bin/lua)
+==36047==    by 0x414164: luaV_execute (in /usr/local/bin/lua)
+==36047==
+==36047==
+==36047== HEAP SUMMARY:
+==36047==     in use at exit: 3,313 bytes in 10 blocks
+==36047==   total heap usage: 2,554 allocs, 2,544 frees, 327,373 bytes allocated
+==36047==
+==36047== LEAK SUMMARY:
+==36047==    definitely lost: 0 bytes in 0 blocks
+==36047==    indirectly lost: 0 bytes in 0 blocks
+==36047==      possibly lost: 0 bytes in 0 blocks
+==36047==    still reachable: 3,313 bytes in 10 blocks
+==36047==         suppressed: 0 bytes in 0 blocks
+==36047== Rerun with --leak-check=full to see details of leaked memory
+==36047==
+==36047== For counts of detected and suppressed errors, rerun with: -v
+==36047== ERROR SUMMARY: 41 errors from 4 contexts (suppressed: 0 from 0)
